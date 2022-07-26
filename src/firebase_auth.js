@@ -1,8 +1,10 @@
 import firbase from "firebase/compat/app"
 // import { initializeApp } from "firebase/app";
-// import "firebase/auth"
+ import "firebase/auth"
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+
+// import {getAuth} from "firebase/auth"
 
 
 // Import the functions you need from the SDKs you need
@@ -12,12 +14,13 @@ import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDNxSL9-7UDoFqf8eusw_SRr18upnCoaF0",
-  authDomain: "app-production-f12f3.firebaseapp.com",
-  projectId: "app-production-f12f3",
-  storageBucket: "app-production-f12f3.appspot.com",
-  messagingSenderId: "326391650121",
-  appId: "1:326391650121:web:f92c7e9156942258302c98"
+    apiKey: "AIzaSyDNxSL9-7UDoFqf8eusw_SRr18upnCoaF0",
+    authDomain: "app-production-f12f3.firebaseapp.com",
+    projectId: "app-production-f12f3",
+    storageBucket: "app-production-f12f3.appspot.com",
+    messagingSenderId: "326391650121",
+    appId: "1:326391650121:web:f92c7e9156942258302c98"
+  
 };
 
 // // Initialize Firebase
@@ -34,5 +37,6 @@ const app = firbase.initializeApp(firebaseConfig);
 // })
 
 export const auth = app.auth()
+// export const auth = getAuth(app)
 export const db = app.firestore()
 export default app;

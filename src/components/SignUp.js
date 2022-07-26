@@ -23,6 +23,7 @@ export default function SignUp() {
             setLoading(true)
             await signup(EmailRef.current.value , PasswordRef.current.value)
         }catch{
+            console.log(error)
             setError('Failed to create account')
         }
         setLoading(false)

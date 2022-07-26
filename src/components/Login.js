@@ -1,16 +1,29 @@
 
-import React ,{useRef , useState} from 'react'
+import React ,{useRef , useState ,useEffect} from 'react'
 import { Form, Button ,Card ,Alert } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link , useNavigate} from 'react-router-dom'
+import {GoogleButton} from 'react-google-button'
 
 export default function Login() {
     const EmailRef = useRef() 
     const PasswordRef = useRef() 
-    const { login } = useAuth()
+    const { login , googleSignIn ,currentUser} = useAuth()
     const [error ,setError] = useState('')
     const [loading ,setLoading] = useState(false)
     const navigate = useNavigate()
+
+    async function handleGoogleSignIn(){
+        try{
+            setError('')
+            setLoading(true)
+            await googleSignIn();
+            navigate('/')
+        }catch(error){
+            setError('Failed to Sign In')
+        }
+        setLoading(false)
+    }
 
 
     async function handleSubmit(e){
@@ -25,6 +38,14 @@ export default function Login() {
         }
         setLoading(false)
     }
+
+    useEffect(() =>{
+        if(currentUser != null){
+            navigate('/')
+        }
+    })
+
+
   return (
       <>
       <Card>
@@ -50,8 +71,8 @@ export default function Login() {
           <div className='w-100 text-center mt-2'>
               Do not have an account ? <Link to="/signup">Sign Up</Link>
           </div>
-          <div >
-          <Button className='w-100 mt-2' style={{marginTop : "60px",color:"white" ,}} type='submit'> Continue With Google</Button>
+          <div className='w-100 text-center mt-2 justfy-content-center' >
+          <GoogleButton onClick={handleGoogleSignIn} className='w-100' />
           </div>
           
       </>
