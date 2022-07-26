@@ -48,9 +48,7 @@ export default function ForgetPassword() {
           <div className='w-100 text-center mt-2'>
               Do not have an account ? <Link to="/signup">Sign Up</Link>
           </div>
-          <div >
-          <Button className='w-100 mt-2' style={{marginTop : "60px",color:"white" ,}} type='submit'> Continue With Google</Button>
-          </div>
+        
           
       </>
   )
