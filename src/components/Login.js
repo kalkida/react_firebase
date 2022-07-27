@@ -4,7 +4,7 @@ import { Form, Button ,Card ,Alert } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link , useNavigate} from 'react-router-dom'
 import {GoogleButton} from 'react-google-button'
-import logo from '../assets/logo.png'
+import {Container} from "react-bootstrap"
 
 export default function Login() {
     const EmailRef = useRef() 
@@ -49,9 +49,13 @@ export default function Login() {
 
   return (
       <>
+             <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{minHeight : "100vh"}}
+      >
+          <div className="w-100" style={{maxWidth:"450px"}}>
       <Card>
           <Card.Body>
-              <img src={logo} className="w-100" alt="Logo" style={{width:"40px" , height:"150px" , justifyContent:"center" }}/>
        <h2 className="text-center mb-4">Log In</h2>
        {error && <Alert variant ="danger">{error}</Alert>}
        <Form onSubmit={handleSubmit}>
@@ -81,6 +85,8 @@ export default function Login() {
           <Button disabled={loading} className='w-100' style={{marginTop : "30px"}} type='submit'> Sign In with Phone</Button>
           </div>
           </Link>
+          </div>
+          </Container>
           
       </>
   )

@@ -1,5 +1,4 @@
 import SignUp from "./SignUp";
-import {Container} from "react-bootstrap"
 import {AuthProvider } from "../context/AuthContext"
 import {BrowserRouter as Router , Routes , Route } from 'react-router-dom'
 import Dashboard from "./Dashboard";
@@ -9,14 +8,11 @@ import ForgetPassword from "./ForgetPassword";
 import UpdateProfile from "./UpdateProfile";
 import PhoneAuth from "./PhoneAuth";
 
+
 function App() {
   return (
-
-  <Container
-  className="d-flex align-items-center justify-content-center"
-  style={{minHeight : "100vh"}}
-  >
-    <div className="w-100" style={{maxWidth:"450px"}}>
+ 
+   
       <Router>
       <AuthProvider>
         <Routes>
@@ -29,8 +25,8 @@ function App() {
         </Routes>
       </AuthProvider>
       </Router>
-    </div>
-  </Container>
+
+
  
   )
   

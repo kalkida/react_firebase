@@ -3,6 +3,7 @@ import React ,{useRef , useState} from 'react'
 import { Form, Button ,Card ,Alert } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
+import {Container} from "react-bootstrap"
 
 export default function ForgetPassword() {
     const EmailRef = useRef() 
@@ -27,7 +28,12 @@ export default function ForgetPassword() {
         setLoading(false)
     }
   return (
-      <>
+      <> 
+      <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{minHeight : "100vh"}}
+      >
+      <div className="w-100" style={{maxWidth:"450px"}}>
       <Card>
           <Card.Body>
        <h2 className="text-center mb-4">Password Reset</h2>
@@ -48,7 +54,8 @@ export default function ForgetPassword() {
           <div className='w-100 text-center mt-2'>
               Do not have an account ? <Link to="/signup">Sign Up</Link>
           </div>
-        
+          </div>
+      </Container>  
           
       </>
   )

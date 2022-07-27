@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import "react-phone-number-input/style.css"
 import { Link , useNavigate} from 'react-router-dom'
 import PhoneInputWithCountrySelect from 'react-phone-number-input'
+import {Container} from "react-bootstrap"
 
 
 export default function PhoneAuth() {
@@ -51,6 +52,11 @@ export default function PhoneAuth() {
     
   return (
     <>
+         <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{minHeight : "100vh"}}
+      >
+          <div className="w-100" style={{maxWidth:"450px"}}>
       <Card>
           <Card.Body>
        <h2 className="text-center mb-4">Phone Authentication</h2>
@@ -84,6 +90,8 @@ export default function PhoneAuth() {
        </Form>
           </Card.Body>
           </Card>
+          </div>
+          </Container>
       </>
   )
 }

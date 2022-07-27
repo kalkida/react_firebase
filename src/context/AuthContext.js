@@ -11,10 +11,13 @@ export function useAuth() {
 export function AuthProvider ({children}){
     const [currentUser ,setCurrentUser] = useState()
     const [loading , setLoading] = useState(true)
+    const [updateControl , setUpdateControl] = useState(false)
 
     const googleSignIn =() =>{
         const provider = new GoogleAuthProvider();
+        setUpdateControl(true)
         signInWithPopup(auth ,provider)
+       
     } 
 
     function phoneVerify(number){
@@ -68,7 +71,8 @@ export function AuthProvider ({children}){
         updateEmail,
         updatePassword,
         googleSignIn,
-        phoneVerify
+        phoneVerify,
+        updateControl
     }
 
     return(
